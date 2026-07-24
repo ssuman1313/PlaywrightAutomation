@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Playwright artifacts
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+/screenshots/
+/videos/
+/traces/
+/reports/
+logs/*.log
+
+# OS / editor noise
+.DS_Store
+Thumbs.db

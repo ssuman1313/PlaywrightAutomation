@@ -1,0 +1,30 @@
+{
+  "name": "playwrightframework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report",
+    "test:qa": "cross-env ENV=qa playwright test",
+    "test:uat": "cross-env ENV=uat playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.5.0",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.4.2",
+    "exceljs": "^3.4.0",
+    "winston": "^3.19.0",
+    "xlsx": "^0.18.5"
+  }
+}
