@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from '../src/fixtures/baseFixture';
 import { ConfigManager } from "../src/config/ConfigManager";
 import { LoginPage } from "../src/pages/LoginPage";
 import { DashboardPage } from "../src/pages/DashboardPage";
@@ -14,12 +14,10 @@ const users = ExcelHelper.getTestData<LoginUser>(
     "Login"
 );
 
-console.log(users);
 for (const user of users) {
-    test(user.testCaseName, async ({ page }) => {
-
-        const loginPage = new LoginPage(page);
-        const dashboardPage = new DashboardPage(page);
+    test(user.testCaseName, async ({ page,
+        loginPage,
+        dashboardPage }) => {
 
         await page.goto(ConfigManager.baseUrl);
 
@@ -35,10 +33,9 @@ for (const user of users) {
         }
     });
 }
-test("InValid Login", async ({ page }) => {
-
-    const loginPage = new LoginPage(page);
-    const dashboardPage = new DashboardPage(page);
+test("InValid Login @smoke", async ({ page,
+    loginPage,
+    dashboardPage }) => {
 
     const users = TestDataHelper.getTestData<LoginUser[]>
         ("test-data/loginUsers.json");

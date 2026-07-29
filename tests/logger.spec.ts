@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
 import { Logger } from '../src/utils/Logger';
 
-test('Logger Test', async () => {
+test('Logger Test @smoke', async () => {
 
     Logger.info("Framework Started");
 

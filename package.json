@@ -9,7 +9,8 @@
     "test:debug": "playwright test --debug",
     "report": "playwright show-report",
     "test:qa": "cross-env ENV=qa playwright test",
-    "test:uat": "cross-env ENV=uat playwright test"
+    "test:uat": "cross-env ENV=uat playwright test",
+    "test:smoke": "cross-env ENV=qa playwright test --grep @smoke"
   },
   "keywords": [],
   "author": "",
