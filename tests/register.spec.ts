@@ -1,11 +1,8 @@
-import { test, expect } from '@playwright/test';
-import { RegistrationPage } from '../src/pages/RegistrationPage';
+import { test, expect } from '../src/fixtures/baseFixture';
 import { ConfigManager } from '../src/config/ConfigManager';
 import { RandomHelper } from '../src/utils/RandomHelper';
 
-test('Register New User', async ({ page }) => {
-
-    const registrationPage = new RegistrationPage(page);
+test('Register New User', async ({ page, registrationPage }) => {
 
     const email = RandomHelper.generateEmail();
 
