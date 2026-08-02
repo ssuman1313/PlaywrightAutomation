@@ -35,13 +35,13 @@ test("InValid Login @smoke", async ({ page,
     loginPage,
     dashboardPage }) => {
 
-    const users = TestDataHelper.getTestData<LoginUser[]>
+    const users = TestDataHelper.getTestData<LoginUser>
         ("test-data/loginUsers.json");
 
     await page.goto(ConfigManager.baseUrl);
 
     await loginPage.login(users[1]);
 
-    expect(await dashboardPage.getTitle()).toBe("Dashboard");
+    expect(await loginPage.getErrorMessage()).toContain("Invalid");
 
 });

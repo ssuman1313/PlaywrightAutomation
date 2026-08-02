@@ -41,25 +41,28 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-        name: ConfigManager.browser,
+      name: ConfigManager.browser,
 
-        use: {
-            ...(
-                ConfigManager.browser === 'chromium'
-                    ? devices['Desktop Chrome']
-                    : ConfigManager.browser === 'firefox'
-                    ? devices['Desktop Firefox']
-                    : ConfigManager.browser === 'edge'
-                    ? devices['Desktop Edge']
-                    : devices['Desktop Safari']
-            ),
+      use: {
+        browserName:
+        (
+          ConfigManager.browser === 'edge'
+            ? "chromium"
+            : ConfigManager.browser === 'safari'
+              ? "webkit"
+              : ConfigManager.browser
+        ) as 'chromium' | 'firefox' | 'webkit',
+        
+        ...(ConfigManager.browser === 'edge'
+          ? { channel: 'msedge' }
+          : {}),
 
-            ...(ConfigManager.browser === 'edge'
-                ? { channel: 'msedge' }
-                : {}),
-        },
+        launchOptions: {
+          args: ['--start-maximized']
+        }
+      },
     },
-]
+  ]
 
   /* Run your local dev server before starting the tests */
   // webServer: {
